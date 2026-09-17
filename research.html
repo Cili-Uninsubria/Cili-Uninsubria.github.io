@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CILI</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/weblogo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+ 
+</head>
+
+
+<body>
+
+<!-- HEADER INCLUDE -->
+<div id="header"></div>
+
+<!-- NAVBAR INCLUDE -->
+<div id="navbar"></div>
+
+<main>
+<!-- MAIN CONTENT -->
+
+  <div class="container">
+    <div class="section">
+      <div class="elenco">
+        <h1> Research topics </h1>
+          <div id="topics"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+<script>
+function createTopic(title, description) {
+  return `
+
+    <h4>${title}.</h4>
+    <p> ${description} </p><br>
+
+  `;
+}
+
+// Lista membri
+const topics = [
+  {
+    title: "Inverse Problems and Imaging",
+    description: "We develop mathematical and computational methods for solving inverse problems arising in imaging sciences. The goal is to reconstruct high-quality information from indirect, noisy, or incomplete measurements by combining accurate mathematical models with efficient numerical algorithms. Our research focuses on regularization techniques, iterative reconstruction methods, and computational frameworks for large-scale inverse problems encountered in medical imaging, astronomy, microscopy, and other scientific applications."
+  },
+  {
+    title: "Image Restoration and Image Deblurring",
+    description: "Image degradation caused by blur, noise, or imperfect acquisition devices is modeled through ill-conditioned inverse problems. We investigate advanced image restoration techniques, including deblurring, denoising, and image reconstruction algorithms that preserve edges and fine structures while remaining computationally efficient. Particular attention is devoted to realistic boundary conditions, Poisson and Gaussian noise models, and multiple-image restoration problems. "
+  },
+  {
+    title: "Numerical Linear Algebra and Structured Matrices",
+    description: "Many computational imaging problems generate extremely large structured linear systems. We study the spectral properties of Toeplitz, circulant, block Toeplitz, and other structured matrix sequences in order to design efficient numerical algorithms. Exploiting matrix structure allows significant reductions in computational cost and memory usage while preserving accuracy for large-scale applications."
+  },
+  {
+    title: "Multigrid Methods and Preconditioning",
+    description: "We design optimal multigrid algorithms and structure-preserving preconditioners for large linear systems and ill-posed problems. Our research investigates convergence theory, spectral analysis, and multilevel techniques capable of accelerating iterative solvers for both classical partial differential equations and inverse problems. These methods are particularly effective for high-dimensional imaging and scientific computing applications."
+  },
+  {
+    title: "Regularization Methods for Ill-Posed Problems",
+    description: "Ill-posed problems require regularization to obtain stable and meaningful solutions. We study classical and modern regularization techniques, including Tikhonov regularization, iterative regularization, hybrid Krylov methods, and matrix-function-based approaches. A central objective is to balance computational efficiency with accurate recovery of meaningful features from noisy data."
+  },
+  {
+    title: "Numerical Optimization for Imaging",
+    description: "Optimization plays a fundamental role in modern image reconstruction. We develop first-order and variable-metric optimization methods for convex and nonsmooth problems, including primal-dual algorithms, proximal methods, and accelerated iterative schemes. These methods are designed for large-scale imaging problems where computational efficiency and robustness are essential."
+  },
+  {
+    title: "Scientific Computing for Fractional Differential Equations",
+    description: "We investigate numerical methods for fractional partial differential equations, which provide accurate models for anomalous diffusion and nonlocal physical phenomena. Our work includes the analysis of discretization techniques, structured matrix formulations, spectral properties, and efficient multigrid solvers for fractional operators."
+  },
+  {
+    title: "Applications in Medical and Astronomical Imaging",
+    description: "Our numerical methods are motivated by real-world applications in biomedical and astronomical imaging. We collaborate on computational techniques for microscopy, CT and MRI reconstruction, astronomical image analysis, and other imaging modalities where reliable reconstruction from noisy measurements is crucial. The emphasis is on translating advanced mathematical algorithms into practical computational tools for scientific and medical research. "
+  },
+  {
+    title: "Computational Mathematics and Scientific Computing",
+    description: "Our research combines numerical analysis, matrix computations, optimization, and high-performance scientific computing to address challenging computational problems. We develop scalable algorithms for large-scale applications, with particular attention to theoretical analysis, computational efficiency, and reproducible numerical software. "
+  },
+
+  // aggiungi altri qui
+];
+
+// Render
+document.getElementById("topics").innerHTML =
+  topics.map(m => createTopic(m.title, m.description)).join("");
+</script>
+
+<!-- FOOTER INCLUDE -->
+<div id="footer"></div>
+
+
+<!-- JS INCLUDE SYSTEM -->
+<script>
+  function loadHTML(id, file) {
+    fetch(file)
+      .then(response => response.text())
+      .then(data => document.getElementById(id).innerHTML = data);
+    }
+
+  loadHTML("header", "header.html");
+  loadHTML("navbar", "navbar.html");
+  loadHTML("footer", "footer.html");
+</script>
+
+<!-- Bootstrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

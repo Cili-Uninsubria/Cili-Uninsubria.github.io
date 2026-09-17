@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CILI</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/weblogo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+ 
+</head>
+
+
+<body>
+
+<!-- HEADER INCLUDE -->
+<div id="header"></div>
+
+<!-- NAVBAR INCLUDE -->
+<div id="navbar"></div>
+
+
+<main>
+<!-- MAIN CONTENT -->
+
+  <div class="container">
+    <div class="section">
+      <div class="elenco">
+        <h1> Software </h1>
+          <div id="softwares"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+<script>
+function createSoftware(title, link, paper) {
+  return `
+
+    <ul>
+      <li class="mb-2"> <h4>${title}</h4>
+        <a href="${link}" target="_blank">${link}</a><br>
+        ${paper}
+      </li>
+    </ul>
+  `;
+}
+
+// Lista membri
+const softwares = [
+  {
+    title: "Iterated Arnoldi Tikhonov method",
+    link: "https://github.com/davide-furchi/iterated-Arnoldi-Tikhonov",
+    paper: "D. Bianchi, M. Donatelli, D. Furchì, and L. Reichel. Convergence analysis and parameter estimation for the iterated Arnoldi-Tikhonov method. Numer. Math. 157, 749-779 (2025). https://doi.org/10.1007/s00211-025-01472-9"
+  },
+
+  // aggiungi altri qui
+];
+
+// Render
+document.getElementById("softwares").innerHTML =
+  softwares.map(m => createSoftware(m.title, m.link, m.paper)).join("");
+</script>
+
+
+
+<!-- FOOTER INCLUDE -->
+<div id="footer"></div>
+
+
+<!-- JS INCLUDE SYSTEM -->
+<script>
+  function loadHTML(id, file) {
+    fetch(file)
+      .then(response => response.text())
+      .then(data => document.getElementById(id).innerHTML = data);
+  }
+
+  loadHTML("header", "header.html");
+  loadHTML("navbar", "navbar.html");
+  loadHTML("footer", "footer.html");
+</script>
+
+<!-- Bootstrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
