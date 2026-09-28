@@ -56,7 +56,8 @@ function createMember(name, role, img, link) {
   return `
     <div class="d-flex align-items-center mb-4">
       <a href="${link}">
-        <img src="${img}" class="rounded me-3" style="height:150px">
+        <img src="${img}" class="rounded me-3" 
+          style="width:150px; height:150px; object-fit:cover;">
       </a>
       <div>
         <h4>
@@ -81,6 +82,12 @@ const members = [
     role: "Postdoctoral researcher",
     img: "assets/img/Pes.jpg",
     link: "https://uninsubria.unifind.cineca.it/individual?uri=http%3A//irises.uninsubria.it/resource/person/221855"
+  },
+  {
+    name: "Dr. Davide Furchì",
+    role: "Postdoctoral researcher",
+    img: "assets/img/default.jpg",
+    link: "https://uninsubria.unifind.cineca.it/individual?uri=http%3A%2F%2Firises.uninsubria.it%2Fresource%2Fperson%2F165145"
   },
   {
     name: "Marco Ratto",
@@ -108,7 +115,7 @@ const members = [
   },
   {
     name: "Chiara Zanotta",
-    role: "Postgraduate",
+    role: "PhD Student XLII cycle",
     img: "assets/img/default.jpg",
     link: "..."
   },
